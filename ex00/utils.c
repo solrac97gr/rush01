@@ -1,5 +1,6 @@
 #include <unistd.h>
 
+// Description: prints a string to the standard output.
 void ft_print_str(char *str)
 {
     while (*str)

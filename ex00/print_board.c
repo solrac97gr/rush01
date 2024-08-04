@@ -1,5 +1,6 @@
 #include <unistd.h>
 
+// Description: Prints the board to the standard output.
 void ft_print_board(int **board)
 {
     int i = 0;

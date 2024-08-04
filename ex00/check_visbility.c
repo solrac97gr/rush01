@@ -1,3 +1,4 @@
+// Description: Check if the visibility is correct.
 int ft_check_visibility(int **board, int *constraints)
 {
     // Check column visibility from top

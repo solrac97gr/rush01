@@ -2,6 +2,7 @@ int ft_check_row(int **board, int row, int value);
 int ft_check_col(int **board, int col, int value);
 int ft_check_visibility(int **board, int *constraints);
 
+// Description: Check if the value is valid in the board.
 int ft_is_valid(int **board, int *constraints, int row, int col, int value)
 {
     // Check if value already exists in the row or column

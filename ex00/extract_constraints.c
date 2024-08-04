@@ -1,3 +1,4 @@
+// Description: Extract the constraints from the argument.
 void ft_extract_constraints(int *constraints, char *arg)
 {
     int i = 0;

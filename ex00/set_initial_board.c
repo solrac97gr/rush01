@@ -1,5 +1,6 @@
 #include <stdlib.h>
 
+// Description: Sets the initial board to all zeros.
 void ft_set_initial_board(int ***board)
 {
     int i;
