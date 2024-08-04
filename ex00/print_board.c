@@ -1,13 +1,19 @@
-#include <stdio.h>
+#include <unistd.h>
 
 void ft_print_board(int **board)
 {
-    for (int i = 0; i < 4; i++)
+    int i = 0;
+    while (i < 4)
     {
-        for (int j = 0; j < 4; j++)
+        int j = 0;
+        while (j < 4)
         {
-            printf("%d ", board[i][j]);
+            char c = board[i][j] + '0';
+            write(1, &c, 1);
+            write(1, " ", 1);
+            j++;
         }
-        printf("\n");
+        write(1, "\n", 1);
+        i++;
     }
 }

@@ -6,7 +6,7 @@ cc:
 nor:
 	@norminette
 example:
-	@make run CASE="4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
+	make run CASE="4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
 run:
 	@./a.out "$(CASE)" | cat -e
 clean:
