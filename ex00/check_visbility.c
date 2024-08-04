@@ -1,89 +1,82 @@
-// Description: Check if the visibility is correct.
-int	ft_check_visibility(int **board, int *constraints)
+int ft_check_visibility(int **board, int *constraints);
+int count_visible(int **board, int start_row, int start_col, int row_step, int col_step);
+int check_row_visibility(int **board, int *constraints, int row);
+int check_col_visibility(int **board, int *constraints, int col);
+
+int ft_check_visibility(int **board, int *constraints)
 {
-	int	col;
-	int	row;
-	int	max;
-	int	visible;
-
-	col = 0;
-	while (col < 4)
+	for (int col = 0; col < 4; col++)
 	{
-		max = 0;
-		visible = 0;
-		row = 0;
-		while (row < 4)
-		{
-			if (board[row][col] > max)
-			{
-				max = board[row][col];
-				visible++;
-			}
-			row++;
-		}
-		if (visible > constraints[col] && constraints[col] != 0)
+		if (!check_col_visibility(board, constraints, col))
 			return 0;
-		col++;
 	}
 
-	col = 0;
-	while (col < 4)
+	for (int row = 0; row < 4; row++)
 	{
-		max = 0;
-		visible = 0;
-		row = 3;
-		while (row >= 0)
-		{
-			if (board[row][col] > max)
-			{
-				max = board[row][col];
-				visible++;
-			}
-			row--;
-		}
-		if (visible > constraints[col + 4] && constraints[col + 4] != 0)
+		if (!check_row_visibility(board, constraints, row))
 			return 0;
-		col++;
 	}
 
-	row = 0;
-	while (row < 4)
+	return 1;
+}
+
+int count_visible(int **board, int start_row, int start_col, int row_step, int col_step)
+{
+	int max = 0;
+	int visible = 0;
+	int row = start_row;
+	int col = start_col;
+
+	while (row >= 0 && row < 4 && col >= 0 && col < 4)
 	{
-		max = 0;
-		visible = 0;
-		col = 0;
-		while (col < 4)
+		if (board[row][col] > max)
 		{
-			if (board[row][col] > max)
-			{
-				max = board[row][col];
-				visible++;
-			}
-			col++;
+			max = board[row][col];
+			visible++;
 		}
-		if (visible > constraints[row + 8] && constraints[row + 8] != 0)
-			return 0;
-		row++;
+		row += row_step;
+		col += col_step;
 	}
 
-	row = 0;
-	while (row < 4)
+	return visible;
+}
+
+int check_row_visibility(int **board, int *constraints, int row)
+{
+	int max = 0;
+	int visible = 0;
+
+	for (int col = 0; col < 4; col++)
 	{
-		max = 0;
-		visible = 0;
-		col = 3;
-		while (col >= 0)
+		if (board[row][col] > max)
 		{
-			if (board[row][col] > max)
-			{
-				max = board[row][col];
-				visible++;
-			}
-			col--;
+			max = board[row][col];
+			visible++;
 		}
-		if (visible > constraints[row + 12] && constraints[row + 12] != 0)
-			return 0;
-		row++;
 	}
-	return (1);
+
+	if (visible > constraints[row + 8] && constraints[row + 8] != 0)
+		return 0;
+
+	return 1;
+}
+
+int check_col_visibility(int **board, int *constraints, int col)
+{
+	int max = 0;
+	int visible = 0;
+
+	for (int row = 0; row < 4; row++)
+	{
+		if (board[row][col] > max)
+		{
+			max = board[row][col];
+			visible++;
+		}
+	}
+
+	if (visible > constraints[col] && constraints[col] != 0)
+		return 0;
+
+	return 1;
 }
