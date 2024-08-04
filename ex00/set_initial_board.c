@@ -1,6 +1,12 @@
 #include <stdlib.h>
 
 // Description: Sets the initial board to all zeros.
+/*
+    [[0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]]
+*/
 void ft_set_initial_board(int ***board)
 {
     int i;
