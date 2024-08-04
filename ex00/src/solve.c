@@ -1,5 +1,4 @@
-int ft_is_valid(int **board, int *constraints, int row, int col, int value);
-int ft_check_visibility(int **board, int *constraints);
+#include <checks.h>
 
 // Description: Solve the board using backtracking.
 int	ft_solve(int **board, int *constraints, int row, int col)

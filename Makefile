@@ -1,6 +1,6 @@
 
 cc:
-	@cc -Wall -Wextra -Werror ex00/*.c -o ./a.out 
+	@cc -Wall -Wextra -Werror -I ./ex00/include ./ex00/src/*.c -o ./a.out 
 	@echo "Your program compile succesfully 📦 in the route: ./a.out"
 	@echo "To run the program use: make run CASE=\"your case\"" or make example
 nor:

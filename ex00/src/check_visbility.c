@@ -1,4 +1,3 @@
-int ft_check_visibility(int **board, int *constraints);
 int count_visible(int **board, int start_row, int start_col, int row_step, int col_step);
 int check_row_visibility(int **board, int *constraints, int row);
 int check_col_visibility(int **board, int *constraints, int col);
